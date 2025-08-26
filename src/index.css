@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 24 24% 6%;
+    --foreground: 0 0% 100%;
+
+    --card: 24 24% 8%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 24 24% 8%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 262 83% 58%;
+
+    --radius: 1rem;
+
+    /* Custom Design System Colors */
+    --purple-primary: 262 83% 58%;
+    --purple-light: 262 83% 68%;
+    --purple-dark: 262 83% 48%;
+    --gray-50: 0 0% 98%;
+    --gray-100: 240 5% 96%;
+    --gray-400: 240 5% 65%;
+    --gray-600: 240 4% 46%;
+    --gray-900: 24 24% 6%;
+
+    /* Gradients */
+    --gradient-purple: linear-gradient(
+      135deg,
+      hsl(var(--purple-primary)),
+      hsl(var(--purple-light))
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(262 83% 58%) 0%,
+      hsl(302 83% 58%) 100%
+    );
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(240 4% 16%) 0%,
+      hsl(240 4% 12%) 100%
+    );
+
+    /* Shadows */
+    --shadow-purple: 0 10px 30px -10px hsl(262 83% 58% / 0.3);
+    --shadow-elegant: 0 20px 40px -10px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 40px hsl(262 83% 58% / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 24 24% 6%;
+    --foreground: 0 0% 100%;
+
+    --card: 24 24% 8%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 24 24% 8%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 262 83% 58%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-105;
+  }
+
+  .glow-purple {
+    box-shadow: var(--shadow-purple);
+  }
+
+  .btn-hero {
+    @apply bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-2xl font-semibold;
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-105;
+    background: var(--gradient-purple);
+  }
+
+  .btn-outline {
+    @apply border-2 border-white text-white px-8 py-4 rounded-2xl font-semibold;
+    @apply transition-all duration-300 hover:bg-white hover:text-gray-900;
+  }
+
+  .feature-card {
+    @apply bg-card border border-border rounded-2xl p-8 transition-all duration-300;
+    @apply hover:border-purple-600/50 hover:shadow-lg hover:scale-105;
+    background: var(--gradient-card);
+  }
+
+  .pricing-card {
+    @apply bg-card border border-border rounded-2xl p-8 transition-all duration-300;
+    @apply hover:border-purple-600/50 hover:shadow-lg;
+    background: var(--gradient-card);
+  }
+
+  .pricing-card-highlighted {
+    @apply bg-purple-600/10 border-purple-600 rounded-2xl p-8;
+    @apply shadow-lg scale-105;
+    background: linear-gradient(
+      145deg,
+      hsl(262 83% 58% / 0.1) 0%,
+      hsl(262 83% 58% / 0.05) 100%
+    );
+    border: 2px solid hsl(262 83% 58%);
+  }
+
+  .blog-card {
+    @apply bg-card border border-border rounded-2xl overflow-hidden;
+    @apply transition-all duration-300 hover:border-purple-600/50 hover:shadow-lg hover:scale-105;
+    background: var(--gradient-card);
+  }
+}
